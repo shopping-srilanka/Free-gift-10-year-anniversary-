@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lanka Traders – 10 Years Anniversary Giveaway</title>
+<style>
+:root{--g:#0a9d45;--g2:#07722f;--y:#ffd21a;--r:#e8262d;--ink:#10201a;--bg:#eefcf2;--calm:#0e1f2e;--calm2:#16324a;--ok:#35d07f}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Tamil","Noto Sans Sinhala",sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;min-height:100vh;overflow-x:hidden}
+.hide{display:none!important}
+.wrap{max-width:480px;margin:0 auto;padding:0 16px 40px}
+
+.ticker{background:var(--r);color:#fff;font-weight:800;font-size:13px;overflow:hidden;white-space:nowrap;padding:7px 0}
+.ticker span{display:inline-block;padding-left:100%;animation:mq 22s linear infinite}
+@keyframes mq{to{transform:translateX(-100%)}}
+.head{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;box-shadow:0 2px 10px #0001;position:sticky;top:0;z-index:5}
+.logo{font-weight:900;font-size:21px;color:var(--g);letter-spacing:-.5px}
+.logo b{color:var(--r)}
+.lg{border:2px solid var(--g);background:#fff;color:var(--g2);font-weight:800;font-size:13px;border-radius:99px;padding:6px 12px;cursor:pointer;font-family:inherit}
+.badge{display:inline-block;font-size:12px;font-weight:800;background:#e6f7ec;color:var(--g2);padding:5px 11px;border-radius:99px}
+.live{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--r);animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.2}}
+
+.hero{text-align:center;padding:20px 0 6px}
+.hero h1{font-size:31px;line-height:1.12;color:var(--g2);font-weight:900;letter-spacing:-.5px;margin-top:10px}
+.hero h1 mark{background:var(--y);color:#000;padding:0 8px;border-radius:6px;display:inline-block;animation:wob 2.4s ease-in-out infinite}
+@keyframes wob{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg) scale(1.04)}}
+.hero p{margin:10px 0}
+.box{position:relative;width:130px;height:130px;margin:14px auto;animation:float 2.6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+.box .b{position:absolute;bottom:0;left:10px;right:10px;height:78px;background:linear-gradient(#ff4a52,#c8141b);border-radius:8px}
+.box .l{position:absolute;bottom:72px;left:2px;right:2px;height:30px;background:linear-gradient(#ff6a70,#e8262d);border-radius:8px;transform-origin:left bottom;animation:lid 2.6s ease-in-out infinite}
+@keyframes lid{0%,60%,100%{transform:rotate(0)}75%{transform:rotate(-14deg)}}
+.box .v{position:absolute;bottom:0;left:calc(50% - 9px);width:18px;height:102px;background:var(--y)}
+.box i{position:absolute;top:-8px;font-style:normal;font-size:22px;animation:spark 1.8s infinite}
+.box i:nth-child(1){left:6px}.box i:nth-child(2){right:4px;animation-delay:.6s}.box i:nth-child(3){left:50px;top:-22px;animation-delay:1.1s}
+@keyframes spark{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:1;transform:scale(1.2)}}
+
+.prizes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.prize{background:#fff;border:2px solid var(--g);border-radius:14px;padding:12px 6px;text-align:center;font-weight:800;position:relative;overflow:hidden}
+.prize::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,#fff9,transparent);transform:skewX(-20deg);animation:shine 3.5s infinite}
+.prize:nth-child(2)::after{animation-delay:.5s}.prize:nth-child(3)::after{animation-delay:1s}.prize:nth-child(4)::after{animation-delay:1.5s}
+@keyframes shine{60%,100%{left:130%}}
+.prize b{display:block;font-size:30px}
+
+.stats{display:flex;gap:8px;margin:10px 0}
+.stat{flex:1;background:#fff;border-radius:12px;padding:10px;text-align:center;font-size:12px;box-shadow:0 2px 8px #0001}
+.stat b{display:block;font-size:20px;color:var(--r)}
+.timer{background:#fff3cd;border:2px dashed var(--r);border-radius:12px;padding:10px;text-align:center;font-weight:800;margin:10px 0}
+.timer #clock{font-size:24px;color:var(--r);font-variant-numeric:tabular-nums}
+
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:16px;font-size:19px;font-weight:900;cursor:pointer;background:linear-gradient(var(--g),var(--g2));color:#fff;font-family:inherit;box-shadow:0 5px 0 #054e20;transition:transform .1s}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 #054e20}
+.btn.pulse{animation:pulse 1.4s infinite}
+@keyframes pulse{0%{box-shadow:0 5px 0 #054e20,0 0 0 0 #0a9d4577}70%{box-shadow:0 5px 0 #054e20,0 0 0 16px #0a9d4500}100%{box-shadow:0 5px 0 #054e20,0 0 0 0 #0a9d4500}}
+.btn.wa{background:linear-gradient(#2fe074,#18b657);color:#032611;box-shadow:0 5px 0 #0c7a3a}
+.btn.y{background:linear-gradient(var(--y),#f0b800);color:#000;box-shadow:0 5px 0 #a07c00}
+.btn:focus-visible,input:focus-visible,textarea:focus-visible,.opt:focus-visible,.lg:focus-visible,.lang:focus-visible{outline:3px solid #000;outline-offset:2px}
+
+.card{background:#fff;border-radius:18px;padding:18px;box-shadow:0 6px 22px #0a9d4530;margin:14px 0}
+.card.in{animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{opacity:0;transform:scale(.85) translateY(20px)}}
+.small{font-size:13px;color:#456}
+
+.cm{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #eee}
+.cm:last-child{border:0}
+.av{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800}
+.cm b{font-size:14px}.cm p{font-size:14px}.cm small{color:#789}
+
+#toast{position:fixed;left:12px;right:12px;bottom:14px;max-width:456px;margin:0 auto;background:#fff;border-left:5px solid var(--g);border-radius:12px;padding:10px 12px;box-shadow:0 8px 28px #0003;display:flex;gap:10px;align-items:center;font-size:13px;z-index:20;transform:translateY(160%);transition:transform .45s cubic-bezier(.2,1.3,.4,1)}
+#toast.show{transform:none}
+
+.spin{width:54px;height:54px;border:6px solid #cfeedd;border-top-color:var(--g);border-radius:50%;margin:8px auto 14px;animation:rot .8s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.step{display:flex;gap:10px;align-items:center;padding:8px 0;opacity:.35;transition:opacity .3s;font-weight:700}
+.step.on{opacity:1}
+.step .ck{width:24px;height:24px;border-radius:50%;border:2px solid #9c9;display:grid;place-items:center;font-size:14px;color:#fff;flex:none}
+.step.done .ck{background:var(--g);border-color:var(--g)}
+.step.done .ck::before{content:"✓"}
+
+.opts{display:grid;gap:10px;margin:14px 0 4px}
+.opt{display:flex;align-items:center;gap:14px;text-align:left;background:#fff;border:2px solid var(--g);border-radius:14px;padding:12px 14px;font:inherit;font-weight:800;font-size:17px;cursor:pointer;transition:transform .15s,box-shadow .15s;color:var(--ink)}
+.opt:hover,.opt:active{transform:scale(1.02);box-shadow:0 6px 16px #0a9d4540}
+.opt em{font-size:34px;font-style:normal}
+.opt small{display:block;font-weight:600;color:#567;font-size:13px}
+
+.prog{height:26px;background:#dff3e6;border-radius:99px;overflow:hidden;margin:12px 0}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--g),#7bd88f);transition:width .5s;position:relative;overflow:hidden}
+.prog i::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,#fff8,transparent);animation:slide 1.2s infinite}
+@keyframes slide{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.dots{display:flex;gap:6px;justify-content:center;margin:8px 0 14px}
+.dots u{width:24px;height:24px;border-radius:50%;background:#dff3e6;display:grid;place-items:center;font-size:12px;text-decoration:none;transition:.3s}
+.dots u.f{background:#25d366;transform:scale(1.15)}
+.dots u.f::before{content:"✓";color:#fff;font-weight:900}
+
+input,textarea{width:100%;padding:15px;border:2px solid #9c9;border-radius:12px;font-size:17px;margin:6px 0 12px;font-family:inherit}
+textarea{resize:none;height:84px}
+label{font-weight:800;font-size:14px}
+.foot{text-align:center;font-size:12px;color:#789;padding:10px 16px 90px}
+#cv{position:fixed;inset:0;pointer-events:none;z-index:40}
+
+/* language picker */
+#langpick{position:fixed;inset:0;z-index:60;background:linear-gradient(160deg,#0a9d45,#07722f);display:grid;place-items:center;padding:20px}
+.lpbox{background:#fff;border-radius:22px;padding:26px 20px;width:100%;max-width:380px;text-align:center;animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+.lpbox .logo{font-size:26px;margin-bottom:6px}
+.lpbox p{font-size:14px;color:#456;margin:8px 0 16px}
+.lang{display:block;width:100%;margin:10px 0;padding:15px;border:2px solid var(--g);border-radius:14px;background:#fff;font:inherit;font-size:20px;font-weight:800;color:var(--g2);cursor:pointer;transition:.15s}
+.lang:hover,.lang:active{background:var(--g);color:#fff;transform:scale(1.02)}
+
+/* reveal */
+#alert{position:fixed;inset:0;z-index:50;background:#b30010;color:#fff;display:grid;place-items:center;text-align:center;padding:20px;animation:flash .35s steps(2) infinite}
+@keyframes flash{50%{background:#5b0008}}
+#alert h2{font-size:34px;font-weight:900;animation:glitch .5s infinite}
+@keyframes glitch{0%{transform:translate(0)}20%{transform:translate(-4px,2px);text-shadow:3px 0 #0ff,-3px 0 #f0f}40%{transform:translate(4px,-2px)}60%{transform:translate(-2px,-3px);text-shadow:-3px 0 #0ff,3px 0 #f0f}100%{transform:translate(0)}}
+#reveal{background:var(--calm);color:#e8f1f8;min-height:100vh}
+#reveal .wrap{padding-top:30px;padding-bottom:50px}
+#reveal h2{font-size:28px;line-height:1.2;margin-bottom:10px;color:#fff}
+#reveal h3{font-size:19px;margin:24px 0 8px;color:var(--ok)}
+#reveal p{margin:8px 0;color:#c9d9e6}
+.shield{width:84px;height:84px;margin:0 auto 14px;border-radius:50%;background:var(--ok);display:grid;place-items:center;font-size:42px;animation:shp 1.6s ease-in-out infinite}
+@keyframes shp{0%{box-shadow:0 0 0 0 #35d07f99}100%{box-shadow:0 0 0 30px #35d07f00}}
+.flag{background:var(--calm2);border-left:4px solid var(--r);border-radius:8px;padding:10px 12px;margin:8px 0;color:#e8f1f8}
+.good{border-left-color:var(--ok)}
+.urls{display:grid;gap:8px;margin:10px 0}
+.url{background:#08141f;border-radius:8px;padding:10px 12px;font-family:ui-monospace,Menlo,monospace;font-size:13.5px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;word-break:break-all}
+.url em{font-style:normal;font-weight:700}
+.bad em{color:#ff7b80}.okk em{color:var(--ok)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.rv.on{opacity:1;transform:none}
+.brand{margin-top:28px;background:linear-gradient(135deg,#123a5c,#0e1f2e);border:1px solid #2a5a82;border-radius:18px;padding:22px;position:relative;overflow:hidden}
+.brand::before{content:"";position:absolute;width:200px;height:200px;right:-70px;top:-70px;background:radial-gradient(#35d07f55,transparent 70%);animation:float 4s ease-in-out infinite}
+.brand h3{margin:0 0 6px;color:#fff;font-size:24px}
+.brand .btn{margin-top:14px;background:linear-gradient(#3fe08c,#22b866);color:#052316;box-shadow:0 5px 0 #127a42;text-decoration:none;text-align:center}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="cv"></canvas>
+
+<!-- language picker (first thing visitors see) -->
+<div id="langpick">
+  <div class="lpbox">
+    <div class="logo" data-brand></div>
+    <p>Select your language<br>மொழியைத் தேர்ந்தெடுக்கவும்<br>භාෂාව තෝරන්න</p>
+    <button class="lang" data-l="ta">தமிழ்</button>
+    <button class="lang" data-l="si">සිංහල</button>
+    <button class="lang" data-l="en">English</button>
+  </div>
+</div>
+
+<div id="toast"><div class="av" id="tav" style="background:var(--g)">K</div><div><b id="tn"></b> <span id="tt"></span><br><small style="color:#789" id="tm"></small></div></div>
+
+<!-- ================= LURE ================= -->
+<div id="lure">
+  <div class="ticker"><span data-i="tick"></span></div>
+  <div class="head">
+    <div class="logo" data-brand></div>
+    <button class="lg" id="lgbtn">🌐 <span id="lgname">English</span></button>
+  </div>
+
+  <div class="wrap">
+    <div id="s1">
+      <div class="hero">
+        <span class="badge" data-i="badge"></span>
+        <h1><span class="bn"></span><br><mark data-i="h1b"></mark></h1>
+        <div class="box"><i>✨</i><i>✨</i><i>⭐</i><div class="v"></div><div class="b"></div><div class="l"></div></div>
+        <p data-i="heroP"></p>
+      </div>
+      <div class="prizes">
+        <div class="prize"><b>📶</b><span data-i="p1"></span></div>
+        <div class="prize"><b>💻</b><span data-i="p2"></span></div>
+        <div class="prize"><b>🏠</b><span data-i="p3"></span></div>
+        <div class="prize"><b>🎁</b><span data-i="p4"></span></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><b id="left">247</b><span data-i="leftL"></span></div>
+        <div class="stat"><b id="view">1,284</b><span class="live"></span> <span data-i="viewL"></span></div>
+      </div>
+      <div class="timer"><span data-i="timerL"></span> <span id="clock">09:59</span></div>
+      <button class="btn pulse" id="claim" data-i="claim"></button>
+
+      <div class="card">
+        <b data-i="comm"></b>
+        <div class="cm"><div class="av" style="background:#e8262d">N</div><div><b>Nimal P.</b> <small data-i="ago2"></small><p data-i="c1"></p></div></div>
+        <div class="cm"><div class="av" style="background:#2f8bff">S</div><div><b>Sathya K.</b> <small data-i="ago3"></small><p data-i="c2"></p></div></div>
+        <div class="cm"><div class="av" style="background:#a24bff">A</div><div><b>Amali R.</b> <small data-i="ago5"></small><p data-i="c3"></p></div></div>
+      </div>
+    </div>
+
+    <div id="s2" class="card hide" style="text-align:center">
+      <div class="spin"></div>
+      <b style="font-size:18px" data-i="chk"></b>
+      <div style="text-align:left;margin-top:12px">
+        <div class="step" id="c1"><span class="ck"></span><span data-i="st1"></span></div>
+        <div class="step" id="c2"><span class="ck"></span><span data-i="st2"></span></div>
+        <div class="step" id="c3"><span class="ck"></span><span data-i="st3"></span></div>
+      </div>
+    </div>
+
+    <div id="s3" class="card hide" style="text-align:center">
+      <b style="font-size:20px" data-i="sel"></b>
+      <p class="small" data-i="chooseP"></p>
+      <div class="opts">
+        <button class="opt" data-g="data"><em>📶</em><span><span data-i="o1t"></span><small data-i="o1s"></small></span></button>
+        <button class="opt" data-g="laptop"><em>💻</em><span><span data-i="o2t"></span><small data-i="o2s"></small></span></button>
+        <button class="opt" data-g="home"><em>🏠</em><span><span data-i="o3t"></span><small data-i="o3s"></small></span></button>
+      </div>
+    </div>
+
+    <div id="s4" class="card hide">
+      <div style="text-align:center;font-weight:900;font-size:19px;color:var(--g2)"><span data-i="chose"></span> <span id="won"></span></div>
+      <p class="small" style="text-align:center;margin-top:4px" data-i="shareP"></p>
+      <div class="prog"><i id="bar"></i></div>
+      <div class="dots" id="dots"></div>
+      <p style="text-align:center"><b id="cnt">0</b> / 10 <span data-i="sharesL"></span> (<span id="pct">0</span>%)</p>
+      <button class="btn wa pulse" id="share" data-i="shareBtn"></button>
+      <p class="small" id="hint" style="margin-top:10px;text-align:center"></p>
+    </div>
+
+    <div id="s5" class="card hide">
+      <div style="text-align:center;font-weight:900;font-size:19px;color:var(--g2)" data-i="done"></div>
+      <p class="small" style="text-align:center;margin:4px 0 12px" data-i="last"></p>
+      <label for="nm" data-i="lbName"></label>
+      <input id="nm" autocomplete="off" data-ph="phName">
+      <label for="ph" data-i="lbPhone"></label>
+      <input id="ph" inputmode="tel" autocomplete="off" data-ph="phPhone">
+      <div id="addrbox">
+        <label for="ad" data-i="lbAddr"></label>
+        <textarea id="ad" autocomplete="off" data-ph="phAddr"></textarea>
+        <label for="ct" data-i="lbCity"></label>
+        <input id="ct" autocomplete="off" data-ph="phCity">
+      </div>
+      <button class="btn y" id="submit" data-i="submit"></button>
+    </div>
+
+    <div id="s6" class="card hide" style="text-align:center">
+      <div class="spin"></div>
+      <b style="font-size:18px" data-i="proc"></b>
+      <p class="small" data-i="procP"></p>
+    </div>
+  </div>
+  <div class="foot">© 2026 <span class="bn"></span>. All rights reserved.</div>
+</div>
+
+<!-- ================= ALERT ================= -->
+<div id="alert" class="hide"><div><div style="font-size:60px">🚨</div><h2 data-i="stop"></h2><p style="margin-top:10px;font-size:18px" data-i="sim"></p></div></div>
+
+<!-- ================= REVEAL ================= -->
+<div id="reveal" class="hide">
+  <div class="wrap">
+    <div class="shield rv">🛡️</div>
+    <h2 class="rv" data-i="rH"></h2>
+    <p class="rv" data-i="rP"></p>
+
+    <h3 class="rv" data-i="rT"></h3>
+    <div class="flag rv" data-i="f1"></div>
+    <div class="flag rv" data-i="f2"></div>
+    <div class="flag rv" data-i="f3"></div>
+    <div class="flag rv" data-i="f4"></div>
+    <div class="flag rv" data-i="f5"></div>
+    <div class="flag rv" data-i="f6"></div>
+
+    <h3 class="rv" data-i="rD"></h3>
+    <p class="rv" data-i="rDP"></p>
+    <div class="urls rv">
+      <div class="url bad"><span>free-data-gift.<em>com</em></span><span data-i="uFake"></span></div>
+      <div class="url bad"><span>claim-now.<em>gov.lk.freegift-offer.net</em></span><span data-i="uFake"></span></div>
+      <div class="url okk"><span>company-name<em>.lk</em></span><span data-i="uOk"></span></div>
+    </div>
+    <div class="flag good rv" data-i="g1"></div>
+    <div class="flag good rv" data-i="g2"></div>
+    <div class="flag good rv" data-i="g3"></div>
+    <div class="flag good rv" data-i="g4"></div>
+
+    <h3 class="rv" data-i="rA"></h3>
+    <div class="flag good rv" data-i="rAP"></div>
+
+    <div class="brand rv">
+      <h3>Rush Environment</h3>
+      <p><b data-i="b1"></b></p>
+      <p data-i="b2"></p>
+      <a class="btn" id="contact" href="#" data-i="b3"></a>
+    </div>
+    <p class="small rv" style="margin-top:18px;text-align:center">Powered by Rush Environment</p>
+  </div>
+</div>
+
+<script>
+// Defaults. Overridden by config.json (edit it from admin.html).
+let CFG = {brand:"Lanka Traders", shareLink:"", contact:"94XXXXXXXXX"};
+fetch("config.json?"+Date.now()).then(r=>r.ok?r.json():{}).then(c=>{CFG={...CFG,...c};apply()}).catch(()=>{});
+const $ = id => document.getElementById(id);
+
+/* ---------- translations ---------- */
+const T = {
+en:{name:"English",
+tick:`🔥 LIMITED OFFER 🔥 FREE 100GB DATA 🔥 FREE LAPTOPS 🔥 FREE HOME ACCESSORIES 🔥 CLAIM BEFORE TIME ENDS 🔥 ONLY FEW GIFTS LEFT 🔥`,
+badge:`✔ Since 2016 · Verified`,h1b:`10 Years Anniversary`,
+heroP:`Thank you for 10 years of trust! To celebrate, choose your <b>FREE gift</b> now!`,
+p1:`100GB<br>Free Data`,p2:`Free<br>Laptops`,p3:`Home<br>Accessories`,p4:`Gift<br>Vouchers`,
+leftL:`gifts left`,viewL:`watching now`,timerL:`⏰ Offer ends in`,claim:`🎁 CLAIM MY FREE GIFT`,
+comm:`💬 What winners are saying`,ago2:`2h ago`,ago3:`3h ago`,ago5:`5h ago`,
+c1:`Got my 100GB in 10 minutes!! Thanks 🙏🔥`,c2:`At first I didn't believe it, but it's real. Laptop coming 😍`,c3:`Share it with your friends, it's really free! 👍👍`,
+chk:`Checking your eligibility…`,st1:`Verifying your device`,st2:`Checking available gifts`,st3:`Reserving your gift`,
+sel:`🎉 You are selected!`,chooseP:`Choose your gift (one only)`,
+o1t:`100GB Free Data`,o1s:`Instant · Any network`,o2t:`Free Laptop`,o2s:`Home delivery`,o3t:`Home Accessories Pack`,o3s:`Home delivery`,
+chose:`🎊 You chose:`,shareP:`To claim it, share with <b>10 WhatsApp contacts / groups</b>. The next step stays locked until you share!`,
+sharesL:`shares`,shareBtn:`📲 SHARE ON WHATSAPP`,hint:n=>`✅ Share counted! ${n} to go…`,
+done:`✅ 100% Completed!`,last:`Last step: enter your details so we can send your <b>{g}</b>.`,
+lbName:`Full name`,lbPhone:`Phone number`,lbAddr:`Delivery address`,lbCity:`City / District`,
+phName:`Your name`,phPhone:`07X XXX XXXX`,phAddr:`House no, street, city`,phCity:`Colombo`,submit:`SUBMIT & GET MY GIFT`,
+proc:`Processing your gift…`,procP:`Please do not close this page`,
+stop:`STOP!<br>THIS IS A SCAM…`,sim:`…simulation 😅`,
+rH:`This was a scam <u>simulation</u>. You're safe!`,
+rP:`<b>{n}</b>, don't worry. Your details (name, number, address) were <b>never sent or saved anywhere</b>. This is an awareness page that shows how real scam sites play with you.`,
+rT:`Tricks you just saw`,
+f1:`🎁 <b>Unrealistic offer</b> – "Free 100GB, free laptop". Nobody gives these away for free.`,
+f2:`⏰ <b>Fake urgency</b> – countdown, "247 gifts left", "watching now". Built to make you panic instead of think.`,
+f3:`✔ <b>Fake trust</b> – "Verified" badge, fake comments, "just claimed" popups. All scripted, nobody really won.`,
+f4:`📲 <b>Share chain</b> – "share with 10 people". You become the scam's distributor.`,
+f5:`🎯 <b>Gift choice → address</b> – Data asks only for your number. Laptop / accessories ask for your <b>home address</b>. "Delivery" is the excuse to collect your identity and location.`,
+f6:`📝 <b>Details harvesting</b> – name, phone and address are used for spam, OTP scams, fake delivery-fee calls and identity misuse. If a "free" gift asks for a delivery fee, it is 100% a scam.`,
+rD:`Don't trust a link just because of its domain`,
+rDP:`Scam links can also end in <b>.com</b> or <b>.lk</b>. Anyone can buy a .com / .lk. The ending alone proves nothing.`,
+uFake:`❌ fake`,uOk:`✅ confirm on the official site`,
+g1:`✅ Read the real domain: the name just before the last dot, before the first "/". Extra words (free, claim, gift, offer) are a warning sign.`,
+g2:`✅ Verify any offer on the company's official website / app / verified page.`,
+g3:`✅ Never give OTP, passwords, ID numbers or bank details through unknown links.`,
+g4:`✅ If you get a scam link, delete it without sharing and tell your friends it's a scam.`,
+rA:`Already clicked and gave your details?`,
+rAP:`📵 Don't respond to unknown calls or OTP requests. Tell your bank / mobile operator. Report the scam (Sri Lanka CERT: cert.gov.lk).`,
+b1:`We build your digital future.`,b2:`Want to take your business online? Websites, web apps, mobile apps – tell us, we'll build it.`,b3:`💬 Contact us on WhatsApp`,
+gifts:{data:`100GB Free Data`,laptop:`Free Laptop`,home:`Home Accessories Pack`},
+toast:g=>`just claimed ${g}!`,ago:n=>`${n} minutes ago`,
+share:`🎁 Lanka Traders 10 Years Anniversary – FREE 100GB data, laptops & more! Claim here:`,
+wa:`Hi Rush Environment, I want a website for my business.`},
+
+ta:{name:"தமிழ்",
+tick:`🔥 குறுகிய கால சலுகை 🔥 இலவச 100GB டேட்டா 🔥 இலவச லேப்டாப் 🔥 இலவச வீட்டு உபகரணங்கள் 🔥 நேரம் முடிவதற்குள் பெற்றுக்கொள்ளுங்கள் 🔥 சில பரிசுகளே மீதம் 🔥`,
+badge:`✔ 2016 முதல் · சரிபார்க்கப்பட்டது`,h1b:`10 வருட நிறைவு விழா`,
+heroP:`10 வருட நம்பிக்கைக்கு நன்றி! கொண்டாட்டமாக உங்கள் <b>இலவச பரிசை</b> இப்போதே தேர்ந்தெடுங்கள்!`,
+p1:`100GB<br>இலவச டேட்டா`,p2:`இலவச<br>லேப்டாப்`,p3:`வீட்டு<br>உபகரணங்கள்`,p4:`பரிசு<br>வவுச்சர்கள்`,
+leftL:`பரிசுகள் மீதம்`,viewL:`இப்போது பார்க்கிறார்கள்`,timerL:`⏰ சலுகை முடிய இன்னும்`,claim:`🎁 என் இலவச பரிசைப் பெறு`,
+comm:`💬 வெற்றியாளர்கள் சொல்வது`,ago2:`2 மணி நேரம் முன்`,ago3:`3 மணி நேரம் முன்`,ago5:`5 மணி நேரம் முன்`,
+c1:`10 நிமிடத்தில் என் 100GB கிடைத்தது!! நன்றி 🙏🔥`,c2:`முதலில் நம்பவில்லை, ஆனால் உண்மைதான். லேப்டாப் வருகிறது 😍`,c3:`நண்பர்களுக்கு ஷேர் பண்ணுங்க, உண்மையிலேயே இலவசம்! 👍👍`,
+chk:`உங்கள் தகுதியைச் சரிபார்க்கிறோம்…`,st1:`உங்கள் சாதனத்தைச் சரிபார்க்கிறது`,st2:`கிடைக்கும் பரிசுகளைச் சரிபார்க்கிறது`,st3:`உங்கள் பரிசை ஒதுக்கி வைக்கிறது`,
+sel:`🎉 நீங்கள் தேர்வு செய்யப்பட்டீர்கள்!`,chooseP:`உங்கள் பரிசைத் தேர்ந்தெடுங்கள் (ஒன்று மட்டும்)`,
+o1t:`100GB இலவச டேட்டா`,o1s:`உடனடி · எந்த நெட்வொர்க்கும்`,o2t:`இலவச லேப்டாப்`,o2s:`வீட்டிற்கே டெலிவரி`,o3t:`வீட்டு உபகரணப் பொதி`,o3s:`வீட்டிற்கே டெலிவரி`,
+chose:`🎊 நீங்கள் தேர்ந்தது:`,shareP:`பெற, <b>10 வாட்ஸ்அப் தொடர்புகள் / குழுக்களுக்கு</b> ஷேர் பண்ணுங்கள். ஷேர் செய்யாமல் அடுத்த படி திறக்காது!`,
+sharesL:`ஷேர்கள்`,shareBtn:`📲 வாட்ஸ்அப்பில் ஷேர் செய்`,hint:n=>`✅ ஷேர் பதிவானது! இன்னும் ${n} மீதம்…`,
+done:`✅ 100% முடிந்தது!`,last:`கடைசி படி: உங்கள் <b>{g}</b> அனுப்ப விவரங்களை உள்ளிடுங்கள்.`,
+lbName:`முழு பெயர்`,lbPhone:`தொலைபேசி எண்`,lbAddr:`டெலிவரி முகவரி`,lbCity:`நகரம் / மாவட்டம்`,
+phName:`உங்கள் பெயர்`,phPhone:`07X XXX XXXX`,phAddr:`வீட்டு எண், தெரு, ஊர்`,phCity:`கொழும்பு`,submit:`சமர்ப்பித்து பரிசைப் பெறு`,
+proc:`உங்கள் பரிசைச் செயல்படுத்துகிறது…`,procP:`இந்தப் பக்கத்தை மூட வேண்டாம்`,
+stop:`நிறுத்துங்கள்!<br>இது ஒரு மோசடி…`,sim:`…உருவகம் (simulation) 😅`,
+rH:`இது ஒரு மோசடி <u>உருவகம்</u>. நீங்கள் பாதுகாப்பாக இருக்கிறீர்கள்!`,
+rP:`<b>{n}</b>, பயப்பட வேண்டாம். உங்கள் விவரங்கள் (பெயர், எண், முகவரி) <b>எங்கும் அனுப்பப்படவுமில்லை, சேமிக்கப்படவுமில்லை</b>. உண்மையான மோசடி தளங்கள் உங்களை எப்படி ஏமாற்றுகின்றன என்பதைக் காட்டும் விழிப்புணர்வுப் பக்கம் இது.`,
+rT:`நீங்கள் இப்போது பார்த்த தந்திரங்கள்`,
+f1:`🎁 <b>நம்ப முடியாத சலுகை</b> – "இலவச 100GB, இலவச லேப்டாப்". இவற்றை யாரும் இலவசமாகத் தருவதில்லை.`,
+f2:`⏰ <b>போலி அவசரம்</b> – கவுண்ட்டவுன், "247 பரிசுகள் மீதம்", "பார்க்கிறார்கள்". யோசிக்க விடாமல் பதற வைக்கும் தந்திரம்.`,
+f3:`✔ <b>போலி நம்பிக்கை</b> – "சரிபார்க்கப்பட்டது" பேட்ஜ், போலி கருத்துகள், "இப்போது பெற்றார்" பாப்அப்கள். எல்லாம் ஸ்கிரிப்ட், யாரும் வெல்லவில்லை.`,
+f4:`📲 <b>ஷேர் சங்கிலி</b> – "10 பேருக்கு ஷேர் பண்ணு". நீங்களே மோசடியைப் பரப்புபவராக மாறுகிறீர்கள்.`,
+f5:`🎯 <b>பரிசு தேர்வு → முகவரி</b> – டேட்டாவுக்கு எண் மட்டும் கேட்பார்கள். லேப்டாப் / உபகரணங்களுக்கு <b>வீட்டு முகவரி</b> கேட்பார்கள். "டெலிவரி" என்ற பெயரில் உங்கள் அடையாளமும் இருப்பிடமும் திரட்டப்படுகிறது.`,
+f6:`📝 <b>விவரங்கள் திரட்டுதல்</b> – பெயர், எண், முகவரி ஸ்பேம், OTP மோசடி, போலி டெலிவரி கட்டண அழைப்புகள், அடையாளத் தவறான பயன்பாட்டுக்குப் பயன்படும். "இலவச" பரிசுக்கு டெலிவரி கட்டணம் கேட்டால் 100% மோசடி.`,
+rD:`டொமைனைப் பார்த்து மட்டும் நம்பாதீர்கள்`,
+rDP:`மோசடி இணைப்புகளும் <b>.com</b>, <b>.lk</b> என்று முடியலாம். யாரும் .com / .lk வாங்கலாம். முடிவு மட்டும் எதையும் நிரூபிக்காது.`,
+uFake:`❌ போலி`,uOk:`✅ அதிகாரப்பூர்வ தளத்தில் உறுதிசெய்யுங்கள்`,
+g1:`✅ உண்மையான டொமைனைப் பாருங்கள்: முதல் "/" க்கு முன், கடைசிப் புள்ளிக்கு முன் உள்ள பெயர். கூடுதல் வார்த்தைகள் (free, claim, gift, offer) எச்சரிக்கை அறிகுறி.`,
+g2:`✅ எந்தச் சலுகையையும் நிறுவனத்தின் அதிகாரப்பூர்வ இணையதளம் / செயலி / சரிபார்க்கப்பட்ட பக்கத்தில் உறுதிசெய்யுங்கள்.`,
+g3:`✅ தெரியாத இணைப்புகளில் OTP, கடவுச்சொல், அடையாள அட்டை எண், வங்கி விவரங்களைக் கொடுக்காதீர்கள்.`,
+g4:`✅ மோசடி இணைப்பு வந்தால் ஷேர் செய்யாமல் நீக்கிவிடுங்கள்; நண்பர்களுக்கு இது மோசடி என்று சொல்லுங்கள்.`,
+rA:`ஏற்கனவே கிளிக் செய்து விவரங்கள் கொடுத்துவிட்டீர்களா?`,
+rAP:`📵 தெரியாத அழைப்புகள் / OTP கோரிக்கைகளுக்குப் பதிலளிக்காதீர்கள். உங்கள் வங்கி / மொபைல் ஆபரேட்டருக்குத் தெரிவியுங்கள். மோசடியைப் புகாரளியுங்கள் (Sri Lanka CERT: cert.gov.lk).`,
+b1:`உங்கள் டிஜிட்டல் எதிர்காலத்தை நாங்கள் உருவாக்குகிறோம்.`,b2:`உங்கள் வணிகத்தை ஆன்லைனுக்குக் கொண்டு வர வேண்டுமா? வெப்சைட், வெப் ஆப், மொபைல் ஆப் – எங்களிடம் சொல்லுங்கள், நாங்கள் செய்து தருகிறோம்.`,b3:`💬 வாட்ஸ்அப்பில் தொடர்பு கொள்ள`,
+gifts:{data:`100GB இலவச டேட்டா`,laptop:`இலவச லேப்டாப்`,home:`வீட்டு உபகரணப் பொதி`},
+toast:g=>`${g} பெற்றுக்கொண்டார்!`,ago:n=>`${n} நிமிடம் முன்`,
+share:`🎁 Lanka Traders 10 வருட நிறைவு விழா – இலவச 100GB டேட்டா, லேப்டாப் மற்றும் பல! இங்கே பெறுங்கள்:`,
+wa:`Hi Rush Environment, I want a website for my business.`},
+
+si:{name:"සිංහල",
+tick:`🔥 සීමිත දීමනාවක් 🔥 නොමිලේ 100GB දත්ත 🔥 නොමිලේ ලැප්ටොප් 🔥 නොමිලේ ගෘහ උපකරණ 🔥 කාලය අවසන් වීමට පෙර ලබාගන්න 🔥 තෑගි ස්වල්පයක් පමණයි 🔥`,
+badge:`✔ 2016 සිට · තහවුරු කළ`,h1b:`වසර 10 සැමරුම`,
+heroP:`වසර 10ක විශ්වාසයට ස්තූතියි! සැමරුමක් ලෙස ඔබේ <b>නොමිලේ තෑග්ග</b> දැන්ම තෝරන්න!`,
+p1:`100GB<br>නොමිලේ දත්ත`,p2:`නොමිලේ<br>ලැප්ටොප්`,p3:`ගෘහ<br>උපකරණ`,p4:`තෑගි<br>වවුචර්`,
+leftL:`තෑගි ඉතිරියි`,viewL:`දැන් බලනවා`,timerL:`⏰ දීමනාව අවසන් වීමට`,claim:`🎁 මගේ නොමිලේ තෑග්ග ලබාගන්න`,
+comm:`💬 ජයග්‍රාහකයන් පවසන දේ`,ago2:`පැය 2කට පෙර`,ago3:`පැය 3කට පෙර`,ago5:`පැය 5කට පෙර`,
+c1:`විනාඩි 10කින් මගේ 100GB ලැබුණා!! ස්තූතියි 🙏🔥`,c2:`මුලින් විශ්වාස කළේ නැහැ, ඒත් ඇත්තටම. ලැප්ටොප් එනවා 😍`,c3:`යාලුවන්ට share කරන්න, ඇත්තටම නොමිලේ! 👍👍`,
+chk:`ඔබේ සුදුසුකම පරීක්ෂා කරමින්…`,st1:`ඔබේ උපාංගය තහවුරු කරමින්`,st2:`පවතින තෑගි පරීක්ෂා කරමින්`,st3:`ඔබේ තෑග්ග වෙන් කරමින්`,
+sel:`🎉 ඔබ තෝරාගෙන ඇත!`,chooseP:`ඔබේ තෑග්ග තෝරන්න (එකක් පමණයි)`,
+o1t:`100GB නොමිලේ දත්ත`,o1s:`ක්ෂණික · ඕනෑම ජාලයක්`,o2t:`නොමිලේ ලැප්ටොප්`,o2s:`නිවසටම බෙදාහැරීම`,o3t:`ගෘහ උපකරණ පැකේජය`,o3s:`නිවසටම බෙදාහැරීම`,
+chose:`🎊 ඔබ තෝරාගත්තේ:`,shareP:`ලබාගැනීමට <b>WhatsApp සම්බන්ධතා / කණ්ඩායම් 10කට</b> share කරන්න. share කරන තුරු ඊළඟ පියවර විවෘත නොවේ!`,
+sharesL:`share`,shareBtn:`📲 WhatsApp හරහා share කරන්න`,hint:n=>`✅ share ගණන් ගත්තා! තව ${n}ක් ඉතිරියි…`,
+done:`✅ 100% සම්පූර්ණයි!`,last:`අවසන් පියවර: ඔබේ <b>{g}</b> එවීමට විස්තර ඇතුළත් කරන්න.`,
+lbName:`සම්පූර්ණ නම`,lbPhone:`දුරකථන අංකය`,lbAddr:`බෙදාහැරීමේ ලිපිනය`,lbCity:`නගරය / දිස්ත්‍රික්කය`,
+phName:`ඔබේ නම`,phPhone:`07X XXX XXXX`,phAddr:`ගෙදර අංකය, වීදිය, නගරය`,phCity:`කොළඹ`,submit:`ඉදිරිපත් කර තෑග්ග ලබාගන්න`,
+proc:`ඔබේ තෑග්ග සකසමින්…`,procP:`කරුණාකර මෙම පිටුව වසන්න එපා`,
+stop:`නවතින්න!<br>මෙය වංචාවක්…`,sim:`…අනුකරණයක් (simulation) 😅`,
+rH:`මෙය වංචා <u>අනුකරණයක්</u>. ඔබ ආරක්ෂිතයි!`,
+rP:`<b>{n}</b>, බය වෙන්න එපා. ඔබේ විස්තර (නම, අංකය, ලිපිනය) <b>කොතැනකටවත් යවා හෝ සුරකුවේ නැහැ</b>. සැබෑ වංචා වෙබ් අඩවි ඔබව රවටන ආකාරය පෙන්වන දැනුවත් කිරීමේ පිටුවක් මෙය.`,
+rT:`ඔබ දැන් දුටු උපක්‍රම`,
+f1:`🎁 <b>විශ්වාස කළ නොහැකි දීමනාව</b> – "නොමිලේ 100GB, නොමිලේ ලැප්ටොප්". මේවා කිසිවෙකු නොමිලේ දෙන්නේ නැහැ.`,
+f2:`⏰ <b>ව්‍යාජ හදිසිය</b> – ගණන් බැලීම, "තෑගි 247ක් ඉතිරියි", "දැන් බලනවා". සිතා බැලීමට ඉඩ නොදී කලබල කරවීමේ උපක්‍රමයක්.`,
+f3:`✔ <b>ව්‍යාජ විශ්වාසය</b> – "තහවුරු කළ" ලාංඡනය, ව්‍යාජ අදහස්, "දැන් ලබාගත්තා" පොප්අප්. සියල්ල පිටපතක්, කිසිවෙකු දිනුවේ නැහැ.`,
+f4:`📲 <b>share දාමය</b> – "10 දෙනෙකුට share කරන්න". ඔබම වංචාව පතුරවන්නා බවට පත්වෙනවා.`,
+f5:`🎯 <b>තෑග්ග තේරීම → ලිපිනය</b> – දත්ත සඳහා අංකය පමණක් ඉල්ලයි. ලැප්ටොප් / උපකරණ සඳහා <b>නිවසේ ලිපිනය</b> ඉල්ලයි. "බෙදාහැරීම" යන නාමයෙන් ඔබේ අනන්‍යතාවය සහ ස්ථානය රැස් කරයි.`,
+f6:`📝 <b>විස්තර එකතු කිරීම</b> – නම, අංකය, ලිපිනය ස්පෑම්, OTP වංචා, ව්‍යාජ බෙදාහැරීමේ ගාස්තු ඇමතුම්, අනන්‍යතා අවභාවිතය සඳහා යොදාගනී. "නොමිලේ" තෑග්ගකට බෙදාහැරීමේ ගාස්තුවක් ඉල්ලුවොත් 100%ක් වංචාවකි.`,
+rD:`ඩොමේන් එක බලා පමණක් විශ්වාස නොකරන්න`,
+rDP:`වංචනික සබැඳි <b>.com</b>, <b>.lk</b> වලින් ද අවසන් විය හැක. ඕනෑම කෙනෙකුට .com / .lk ගත හැක. අවසානය පමණක් කිසිවක් ඔප්පු නොකරයි.`,
+uFake:`❌ ව්‍යාජ`,uOk:`✅ නිල වෙබ් අඩවියෙන් තහවුරු කරගන්න`,
+g1:`✅ සැබෑ ඩොමේන් එක බලන්න: පළමු "/" ට පෙර, අවසාන තිතට පෙර නම. අමතර වචන (free, claim, gift, offer) අනතුරු ඇඟවීමකි.`,
+g2:`✅ ඕනෑම දීමනාවක් ආයතනයේ නිල වෙබ් අඩවිය / යෙදුම / තහවුරු කළ පිටුවෙන් සත්‍යාපනය කරන්න.`,
+g3:`✅ නොදන්නා සබැඳි හරහා OTP, මුරපද, හැඳුනුම්පත් අංක, බැංකු විස්තර කිසිවිටෙක නොදෙන්න.`,
+g4:`✅ වංචනික සබැඳියක් ලැබුණොත් share නොකර මකා දමන්න; මිතුරන්ට මෙය වංචාවක් බව කියන්න.`,
+rA:`දැනටමත් click කර විස්තර දුන්නාද?`,
+rAP:`📵 නොදන්නා ඇමතුම් / OTP ඉල්ලීම් වලට ප්‍රතිචාර නොදක්වන්න. ඔබේ බැංකුවට / ජංගම ක්‍රියාකරුවාට දන්වන්න. වංචාව වාර්තා කරන්න (Sri Lanka CERT: cert.gov.lk).`,
+b1:`අපි ඔබේ ඩිජිටල් අනාගතය ගොඩනඟමු.`,b2:`ඔබේ ව්‍යාපාරය ඔන්ලයින් ගෙන ඒමට අවශ්‍යද? වෙබ් අඩවි, වෙබ් යෙදුම්, ජංගම යෙදුම් – අපට කියන්න, අපි හදා දෙන්නම්.`,b3:`💬 WhatsApp හරහා අප අමතන්න`,
+gifts:{data:`100GB නොමිලේ දත්ත`,laptop:`නොමිලේ ලැප්ටොප්`,home:`ගෘහ උපකරණ පැකේජය`},
+toast:g=>`${g} ලබාගත්තා!`,ago:n=>`මිනිත්තු ${n}කට පෙර`,
+share:`🎁 Lanka Traders වසර 10 සැමරුම – නොමිලේ 100GB දත්ත, ලැප්ටොප් සහ තවත් බොහෝ දේ! මෙතැනින් ලබාගන්න:`,
+wa:`Hi Rush Environment, I want a website for my business.`}
+};
+
+/* ---------- state + rendering ---------- */
+let lang="en", gift="data", uname="";
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function apply(){
+  const t=T[lang];
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i]").forEach(e=>{
+    e.innerHTML=t[e.dataset.i].replaceAll("Lanka Traders",esc(CFG.brand)).replace("{g}",t.gifts[gift]).replace("{n}",esc(uname));
+  });
+  document.querySelectorAll("[data-ph]").forEach(e=>e.placeholder=t[e.dataset.ph]);
+  $("won").textContent=t.gifts[gift];
+  $("lgname").textContent=t.name;
+  $("contact").href="https://wa.me/"+CFG.contact+"?text="+encodeURIComponent(t.wa);
+  const parts=CFG.brand.trim().split(" "),last=parts.length>1?parts.pop():"";
+  document.querySelectorAll("[data-brand]").forEach(e=>{e.innerHTML=esc(parts.join(" "))+(last?" <b>"+esc(last)+"</b>":"")});
+  document.querySelectorAll(".bn").forEach(e=>e.textContent=CFG.brand);
+  if($("reveal").classList.contains("hide"))document.title=CFG.brand+" – 10 Years Anniversary Giveaway";
+  if(shares>0&&shares<10)$("hint").textContent=t.hint(10-shares);
+}
+document.querySelectorAll(".lang").forEach(b=>b.onclick=()=>{lang=b.dataset.l;apply();$("langpick").classList.add("hide")});
+$("lgbtn").onclick=()=>$("langpick").classList.remove("hide");
+
+const show = id => { ["s1","s2","s3","s4","s5","s6"].forEach(s => $(s).classList.toggle("hide", s !== id)); if(id!=="s1"){$(id).classList.add("in");window.scrollTo({top:0,behavior:"smooth"});} };
+
+/* ---------- fake live numbers ---------- */
+let t=599;
+setInterval(()=>{t=t>0?t-1:599;$("clock").textContent=String(Math.floor(t/60)).padStart(2,"0")+":"+String(t%60).padStart(2,"0")},1000);
+let left=247,view=1284;
+setInterval(()=>{if(left>9)left-=Math.ceil(Math.random()*3);$("left").textContent=left},3500);
+setInterval(()=>{view+=Math.floor(Math.random()*21)-9;$("view").textContent=view.toLocaleString()},2200);
+
+/* fake "winner" toasts */
+const names=["Kasun","Nirosha","Dilan","Tharindu","Priya","Ashan","Meena","Ruwan","Kavya","Sanjeew"];
+const towns=["Colombo","Kandy","Jaffna","Galle","Negombo","Matara","Kurunegala","Batticaloa"];
+const cols=["#e8262d","#2f8bff","#a24bff","#ff8a1a","#0a9d45"];
+function toast(){
+  if(!$("langpick").classList.contains("hide"))return;
+  const T_=T[lang],n=names[Math.random()*names.length|0],keys=["data","laptop","home"];
+  $("tn").textContent=n+", "+towns[Math.random()*towns.length|0];
+  $("tt").textContent=T_.toast(T_.gifts[keys[Math.random()*3|0]]);
+  $("tm").textContent=T_.ago(1+Math.random()*8|0);
+  $("tav").textContent=n[0];$("tav").style.background=cols[Math.random()*cols.length|0];
+  $("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),3800);
+}
+setTimeout(function loop(){toast();setTimeout(loop,6500+Math.random()*3000)},5000);
+
+/* confetti */
+const cv=$("cv"),cx=cv.getContext("2d");let parts=[],raf=0;
+function fit(){cv.width=innerWidth;cv.height=innerHeight}addEventListener("resize",fit);fit();
+function confetti(){
+  const c=["#ffd21a","#e8262d","#0a9d45","#2f8bff","#a24bff","#fff"];
+  for(let i=0;i<160;i++)parts.push({x:innerWidth/2,y:innerHeight*.45,vx:(Math.random()-.5)*16,vy:-Math.random()*16-4,s:5+Math.random()*7,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:c[Math.random()*c.length|0],l:140});
+  if(!raf)tick();
+}
+function tick(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  parts=parts.filter(p=>p.l>0);
+  parts.forEach(p=>{p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;p.l--;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);cx.restore()});
+  raf=parts.length?requestAnimationFrame(tick):0;
+}
+
+/* ---------- flow ---------- */
+$("claim").onclick=()=>{
+  show("s2");
+  [["c1",900],["c2",2200],["c3",3500]].forEach(([id,ms])=>setTimeout(()=>{$(id).classList.add("on");setTimeout(()=>$(id).classList.add("done"),700)},ms-800));
+  setTimeout(()=>{show("s3");confetti()},4800);
+};
+const NEEDS_ADDRESS={data:false,laptop:true,home:true};
+document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+  gift=b.dataset.g;apply();confetti();show("s4");buildDots();
+});
+
+/* share gate */
+let shares=0,pendingAt=0;
+function buildDots(){$("dots").innerHTML="<u></u>".repeat(10)}
+function update(){
+  $("bar").style.width=shares*10+"%";$("cnt").textContent=shares;$("pct").textContent=shares*10;
+  [...$("dots").children].forEach((d,i)=>d.classList.toggle("f",i<shares));
+  if(shares>=10){confetti();setTimeout(()=>{$("addrbox").classList.toggle("hide",!NEEDS_ADDRESS[gift]);apply();show("s5")},900)}
+}
+function counted(){pendingAt=0;shares++;update();$("hint").textContent=shares<10?T[lang].hint(10-shares):""}
+$("share").onclick=()=>{
+  const link=CFG.shareLink||location.href.split("#")[0];
+  const msg=T[lang].share.replaceAll("Lanka Traders",CFG.brand)+" "+link;
+  pendingAt=Date.now();
+  window.open("https://wa.me/?text="+encodeURIComponent(msg),"_blank");
+  setTimeout(()=>{if(pendingAt)counted()},6000); // fallback if the visibility event doesn't fire
+};
+document.addEventListener("visibilitychange",()=>{if(!document.hidden&&pendingAt&&Date.now()-pendingAt>1500)counted()});
+
+/* submit -> processing -> alert -> reveal (the ONLY place the awareness purpose is shown) */
+$("submit").onclick=()=>{
+  uname=$("nm").value.trim()||"Friend";
+  $("nm").value="";$("ph").value="";$("ad").value="";$("ct").value=""; // nothing is sent or stored anywhere
+  apply();show("s6");
+  setTimeout(()=>{
+    $("alert").classList.remove("hide");
+    setTimeout(()=>{
+      $("alert").classList.add("hide");$("lure").classList.add("hide");$("toast").classList.add("hide");
+      $("reveal").classList.remove("hide");window.scrollTo(0,0);
+      document.title="Scam awareness – Rush Environment";
+      confetti();
+      const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}}),{threshold:.15});
+      document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+    },2200);
+  },2400);
+};
+
+apply();
+</script>
+</body>
+</html>
