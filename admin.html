@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin</title>
+<style>
+:root{--bg:#0e1f2e;--card:#16324a;--line:#2a5a82;--ink:#e8f1f8;--mute:#9fb6c9;--ok:#35d07f;--bad:#ff7b80;--acc:#ffd21a}
+*{box-sizing:border-box;margin:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;padding:16px 16px 60px}
+.w{max-width:520px;margin:0 auto}
+h1{font-size:24px;margin:6px 0 2px}
+h2{font-size:17px;margin-bottom:10px}
+.sub{color:var(--mute);font-size:14px;margin-bottom:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0}
+label{display:block;font-weight:700;font-size:14px;margin-top:12px}
+small{color:var(--mute);display:block;font-size:12.5px;margin-top:2px}
+input{width:100%;padding:13px;border-radius:10px;border:2px solid var(--line);background:#0b1824;color:var(--ink);font:inherit;font-size:16px;margin-top:6px}
+input:focus-visible,button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:block;width:100%;border:0;border-radius:12px;padding:14px;font:inherit;font-weight:800;font-size:16px;cursor:pointer;margin-top:14px;background:var(--ok);color:#052316}
+.btn.alt{background:transparent;border:2px solid var(--line);color:var(--ink)}
+.chk{display:flex;gap:8px;align-items:center;margin-top:12px;font-size:14px;font-weight:600}
+.chk input{width:auto;margin:0}
+.pv{background:#0b1824;border-radius:10px;padding:10px 12px;font-size:13.5px;margin-top:8px;word-break:break-all;border-left:4px solid var(--ok)}
+.pv b{color:var(--acc);font-size:12px}
+#st{margin-top:12px;font-size:14px;min-height:20px}
+.ok{color:var(--ok)}.bad{color:var(--bad)}
+code{background:#0b1824;padding:2px 6px;border-radius:6px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="w">
+  <h1>⚙️ Site Admin</h1>
+  <p class="sub">Share link, brand name, WhatsApp number maathi, GitHub la publish pannunga.</p>
+
+  <div class="card">
+    <h2>Site settings</h2>
+    <label for="brand">Brand name</label>
+    <input id="brand" autocomplete="off" placeholder="Lanka Traders">
+    <small>Logo, title, footer, share message ellam maarum.</small>
+
+    <label for="link">Share link</label>
+    <input id="link" inputmode="url" autocomplete="off" placeholder="https://rusthicrush.github.io/Rush2/scam-awareness/">
+    <small>WhatsApp share message la poga pora link. Kaali vittaal page oda current link use aagum.</small>
+
+    <label for="wa">Your WhatsApp number (reveal page contact button)</label>
+    <input id="wa" inputmode="numeric" autocomplete="off" placeholder="94771234567">
+    <small>Country code kooda, + illama, spaces illama.</small>
+
+    <h2 style="margin-top:18px">Share message preview</h2>
+    <div class="pv"><b>EN</b><br><span id="p_en"></span></div>
+    <div class="pv"><b>TA</b><br><span id="p_ta"></span></div>
+    <div class="pv"><b>SI</b><br><span id="p_si"></span></div>
+  </div>
+
+  <div class="card">
+    <h2>Publish</h2>
+    <div class="row">
+      <div><label for="own">GitHub user</label><input id="own" value="Rusthicrush" autocomplete="off"></div>
+      <div><label for="rep">Repo</label><input id="rep" value="Rush2" autocomplete="off"></div>
+    </div>
+    <div class="row">
+      <div><label for="br">Branch</label><input id="br" value="main" autocomplete="off"></div>
+      <div><label for="pth">File path</label><input id="pth" value="scam-awareness/index.html" autocomplete="off"></div>
+    </div>
+    <label for="tok">GitHub token</label>
+    <input id="tok" type="password" autocomplete="off" placeholder="github_pat_…">
+    <small>Fine-grained token, idhu repo mattum, <b>Contents: Read and write</b>. Chat la paste pannaadheenga, inga mattum.</small>
+    <label class="chk"><input type="checkbox" id="rem"> Intha device la token ah remember pannu</label>
+    <button class="btn" id="pub">🚀 Publish to GitHub</button>
+    <button class="btn alt" id="dl">📋 Copy config line</button>
+    <div id="st"></div>
+    <small style="margin-top:10px">Publish aana 1-2 min la GitHub Pages update aagum. Token illaama "Copy config line" use panni, <code>index.html</code> la <code>CFG_START … CFG_END</code> naduvula paste pannalaam.</small>
+  </div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const SHARE={
+  en:"🎁 {brand} 10 Years Anniversary – FREE 100GB data, laptops & more! Claim here:",
+  ta:"🎁 {brand} 10 வருட நிறைவு விழா – இலவச 100GB டேட்டா, லேப்டாப் மற்றும் பல! இங்கே பெறுங்கள்:",
+  si:"🎁 {brand} වසර 10 සැමරුම – නොමිලේ 100GB දත්ත, ලැප්ටොප් සහ තවත් බොහෝ දේ! මෙතැනින් ලබාගන්න:"
+};
+const DEFAULT_LINK="(current page link)";
+const MARK=/\/\*CFG_START\*\/([\s\S]*?)\/\*CFG_END\*\//;
+
+function cfg(){
+  return {
+    brand:$("brand").value.trim()||"Lanka Traders",
+    shareLink:$("link").value.trim(),
+    contact:$("wa").value.replace(/\D/g,"")
+  };
+}
+function preview(){
+  const c=cfg();
+  for(const l of ["en","ta","si"]) $("p_"+l).textContent=SHARE[l].replace("{brand}",c.brand)+" "+(c.shareLink||DEFAULT_LINK);
+}
+["brand","link","wa"].forEach(i=>$(i).addEventListener("input",preview));
+function say(msg,ok){const s=$("st");s.className=ok===true?"ok":ok===false?"bad":"";s.textContent=msg}
+function validate(){
+  const c=cfg();
+  if(c.shareLink&&!/^https:\/\/[^\s]+$/i.test(c.shareLink)){say("Share link https:// la start aaganum.",false);return null}
+  if(c.contact&&c.contact.length<9){say("WhatsApp number romba kuraiva irukku (country code kooda kudunga).",false);return null}
+  return c;
+}
+// JSON that is safe to sit inside a <script> tag
+const cfgText=c=>JSON.stringify(c).replace(/</g,"\\u003c");
+const b64dec=b=>new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g,"")),ch=>ch.charCodeAt(0)));
+const b64enc=t=>btoa(Array.from(new TextEncoder().encode(t),x=>String.fromCharCode(x)).join(""));
+
+function fill(c){
+  $("brand").value=c.brand||"Lanka Traders";
+  $("link").value=c.shareLink||"";
+  $("wa").value=c.contact&&c.contact!=="94XXXXXXXXX"?c.contact:"";
+  preview();
+}
+/* load current settings from index.html (same folder) */
+fetch("index.html?"+Date.now()).then(r=>r.text()).then(t=>{
+  const m=t.match(MARK);fill(m?JSON.parse(m[1]):{});
+}).catch(()=>fill({}));
+
+try{const t=localStorage.getItem("adm_tok");if(t){$("tok").value=t;$("rem").checked=true}}catch(e){}
+
+$("dl").onclick=async()=>{
+  const c=validate();if(!c)return;
+  const line="/*CFG_START*/"+cfgText(c)+"/*CFG_END*/";
+  try{await navigator.clipboard.writeText(line);say("Copy aachu. index.html la CFG_START…CFG_END ah replace pannunga.",true)}
+  catch(e){prompt("Copy pannunga:",line)}
+};
+
+$("pub").onclick=async()=>{
+  const c=validate();if(!c)return;
+  const tok=$("tok").value.trim();
+  if(!tok){say("GitHub token kudunga (illa 'Copy config line' use pannunga).",false);return}
+  try{if($("rem").checked)localStorage.setItem("adm_tok",tok);else localStorage.removeItem("adm_tok")}catch(e){}
+  const o=$("own").value.trim(),r=$("rep").value.trim(),b=$("br").value.trim(),p=$("pth").value.trim().replace(/^\/+/,"");
+  const url=`https://api.github.com/repos/${o}/${r}/contents/${p}`;
+  const H={Authorization:"Bearer "+tok,Accept:"application/vnd.github+json"};
+  say("Publishing…");
+  try{
+    const g=await fetch(url+"?ref="+encodeURIComponent(b),{headers:H});
+    if(!g.ok){say("index.html GitHub la kedaikkala ("+g.status+"). Token / repo / branch / path check pannunga.",false);return}
+    const f=await g.json(),html=b64dec(f.content);
+    if(!MARK.test(html)){say("index.html la CFG_START…CFG_END marker illa. Latest index.html upload pannunga.",false);return}
+    const out=html.replace(MARK,()=>"/*CFG_START*/"+cfgText(c)+"/*CFG_END*/");
+    const put=await fetch(url,{method:"PUT",headers:{...H,"Content-Type":"application/json"},body:JSON.stringify({
+      message:"Update site settings",content:b64enc(out),branch:b,sha:f.sha
+    })});
+    if(put.ok)say("✅ Published! 1-2 min la live aagum.",true);
+    else say("Publish fail ("+put.status+"). Token ku Contents: Read and write permission irukka check pannunga.",false);
+  }catch(e){say("Network error. Internet check pannunga.",false)}
+};
+</script>
+</body>
+</html>
